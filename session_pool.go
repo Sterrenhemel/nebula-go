@@ -211,7 +211,6 @@ func (pool *SessionPool) ExecuteJson(stmt string) ([]byte, error) {
 // The result is a JSON string in the same format as ExecuteJson()
 //TODO(Aiee) check the space name
 func (pool *SessionPool) ExecuteJsonWithParameter(stmt string, params map[string]interface{}) ([]byte, error) {
-	return nil, fmt.Errorf("not implemented")
 
 	// Get a session from the pool
 	session, err := pool.getIdleSession()
