@@ -53,17 +53,23 @@ For example:
 
 ## Usage example
 
-[Simple Code Example](https://github.com/vesoft-inc/nebula-go/tree/master/basic_example/graph_client_basic_example.go)
+[Simple Code Example](https://github.com/vesoft-inc/nebula-go/tree/master/examples/basic_example/graph_client_basic_example.go)
 
-[Code Example with Gorountines](https://github.com/vesoft-inc/nebula-go/tree/master/gorountines_example/graph_client_goroutines_example.go)
+[Code Example with Gorountines](https://github.com/vesoft-inc/nebula-go/tree/master/examples/gorountines_example/graph_client_goroutines_example.go)
 
-[Session Pool Example](https://github.com/vesoft-inc/nebula-go/blob/master/session_pool_example/session_pool_example.go)
+[Session Pool Example](https://github.com/vesoft-inc/nebula-go/blob/master/examples/session_pool_example/session_pool_example.go)
 
 There are some limitations while using the session pool:
 1. There MUST be an existing space in the DB before initializing the session pool.
 2. Each session pool is corresponding to a single USER and a single Space. This is to ensure that the user's access control is consistent. i.g. The same user may have different access privileges in different spaces. If you need to run queries in different spaces, you may have multiple session pools.
 3. Every time when sessinPool.execute() is called, the session will execute the query in the space set in the session pool config.
 4. Commands that alter passwords or drop users should NOT be executed via session pool.
+
+## Code of Conduct
+
+This project and everyone participating in it is governed by the 
+[Vesoft Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are 
+expected to uphold this code.
 
 ## Licensing
 

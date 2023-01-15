@@ -1148,11 +1148,14 @@ func TestExecuteWithParameter(t *testing.T) {
 	}
 	// Complex result
 	{
-		resp, err := tryToExecuteWithParameter(session, "MATCH (v:person {name: $p4.b}) WHERE v.person.age>$p2-3 and $p1==true RETURN v ORDER BY $p3[0] LIMIT $p2", params)
+		query := "MATCH (v:person {name: $p4.b}) WHERE v.person.age>$p2-3 and $p1==true RETURN v ORDER BY $p3[0] LIMIT $p2"
+		resp, err := tryToExecuteWithParameter(session, query, params)
 		if err != nil {
 			t.Fatalf(err.Error())
 			return
 		}
+		checkResultSet(t, query, resp)
+
 		assert.Equal(t, 1, resp.GetRowSize())
 		record, err := resp.GetRowValuesByIndex(0)
 		if err != nil {
